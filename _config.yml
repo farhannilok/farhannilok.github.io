@@ -1,0 +1,8 @@
+title: Farhan Hasan Nilok
+description: Minimal Developer Portfolio
+collections:
+  pages:
+    output: true
+include:
+  - pages
+theme: minima
