@@ -1,0 +1,119 @@
+---
+import { Button } from "@/components/ui/button"
+import { Menu, X } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { ModeToggle } from "@/components/ui/ModeToggle"
+import { Image } from "astro:assets"
+const { pathname } = Astro.url
+
+const links = [
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
+  { href: "/blogs", label: "Blogs" },
+  { href: "/courses", label: "Courses/Certifications" },
+  { href: "/awards", label: "Awards" },
+]
+---
+
+<nav
+  class="sticky top-0 z-50 mt-2 overflow-hidden bg-white px-4 md:bg-transparent md:px-0 md:backdrop-blur-sm dark:bg-background md:dark:bg-background/70"
+>
+  <div class="flex items-center justify-between">
+    <a aria-label="Go to Farhan Hasan Nilok home page" href="/">
+      <div class="relative shrink-0 md:mx-0" aria-hidden="true">
+        <div class="relative size-8.5 overflow-hidden rounded-full">
+          <Image
+            loading="eager"
+            alt="Farhan Hasan Nilok"
+            class="h-full w-full object-cover grayscale hover:grayscale-0"
+            src="https://github.com/farhannilok.png"
+            width={34}
+            height={34}
+          />
+        </div>
+      </div>
+    </a>
+    <div class="max-w-3xl">
+      <div class="flex h-14 items-center justify-between">
+        <div
+          class="hidden md:flex md:flex-1 md:items-center md:justify-start md:gap-x-4"
+        >
+          {
+            links.map((link) => {
+              // Exact match or sub-route match logic
+              const isActive =
+                pathname === link.href || pathname.startsWith(link.href + "/")
+              return (
+                <a
+                  class={cn(
+                    "text-sm font-medium text-muted-foreground transition-all",
+                    isActive && "active-route text-primary-foreground"
+                  )}
+                  href={link.href}
+                >
+                  {link.label}
+                </a>
+              )
+            })
+          }
+          <div>
+            <ModeToggle client:idle />
+          </div>
+        </div>
+        <div class="flex items-center md:hidden">
+          <Button
+            id="mobile-menu-button"
+            type="button"
+            variant="secondary"
+            size="icon"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span data-icon="open" class="block">
+              <Menu className="size-5" />
+            </span>
+            <span data-icon="close" class="hidden">
+              <X className="size-5" />
+            </span>
+            <span class="sr-only">Toggle menu</span>
+          </Button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    id="mobile-menu"
+    class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out md:hidden"
+  >
+    <div class="space-y-1 px-2">
+      {
+        links.map((link) => (
+          <div class="block">
+            <a
+              class="inline-block py-2 text-sm text-muted-foreground transition-all hover:text-foreground"
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          </div>
+        ))
+      }
+      <ModeToggle client:idle />
+    </div>
+  </div>
+</nav>
+<script>
+  const button = document.getElementById("mobile-menu-button")
+  const menu = document.getElementById("mobile-menu")
+  const openIcon = button?.querySelector('[data-icon="open"]')
+  const closeIcon = button?.querySelector('[data-icon="close"]')
+
+  button?.addEventListener("click", () => {
+    const isOpen = button.getAttribute("aria-expanded") === "true"
+    button.setAttribute("aria-expanded", String(!isOpen))
+    menu?.classList.toggle("max-h-0", isOpen)
+    menu?.classList.toggle("max-h-96", !isOpen)
+    openIcon?.classList.toggle("hidden", !isOpen)
+    closeIcon?.classList.toggle("hidden", isOpen)
+  })
+</script>
