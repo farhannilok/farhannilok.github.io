@@ -1,0 +1,66 @@
+---
+import Layout from "@/layouts/main.astro"
+import serverlessCrashThumbnail from "@/assets/blogs/serverless-crash-blog-thumbnail.jpg"
+import { Image } from "astro:assets"
+---
+
+<Layout>
+  <section
+    class="mx-auto my-2 w-full space-y-8 border-t border-b px-6 py-6 md:my-8 md:rounded-lg md:border md:px-12"
+  >
+    <h1 class="page-title text-2xl font-bold">
+      Farhan Hasan Nilok's Blogs &amp; Articles
+    </h1><p class="mb-12 text-sm text-muted-foreground">
+      Explore Farhan Hasan Nilok's latest articles, including DEV Community
+      posts and other published insights on software development, web
+      technologies, and programming.
+    </p>
+    <section class="flex flex-col gap-y-6 print:gap-y-1" id="dev.to-blogs">
+      <div class="space-y-2">
+        <h2 class="text-xl font-bold" id="dev.to-blogs">
+          Dev.to Contributions
+        </h2>
+      </div>
+      <div class="space-y-6">
+        <div class="flex gap-3 md:gap-6">
+          <div class="relative h-13.5 w-24 flex-none md:h-33.75 md:w-60">
+            <Image
+              alt="How to Solve Vercel Server Less function Crushed 500 Error for Express Server"
+              loading="eager"
+              format="avif"
+              class="rounded-lg object-cover"
+              style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;aspect-ratio:16/9"
+              src={serverlessCrashThumbnail}
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <a
+                  target="_blank"
+                  rel="noopener"
+                  href="https://dev.to/nilok/how-to-solve-vercel-server-less-function-crushed-error-for-express-server-445a"
+                  ><h3
+                    class="line-clamp-2 text-sm font-semibold hover:underline md:line-clamp-3 md:text-base"
+                  >
+                    How to Solve Vercel Server Less function Crushed 500 Error
+                    for Express Server.
+                  </h3>
+                </a><p class="hidden text-sm text-muted-foreground md:block">
+                  Working with serverless functions on platforms like Vercel can
+                  be a seamless experience, but occasionally, challenges may
+                  arise. Recently, I encountered a serverless function crash on
+                  Vercel...
+                </p>
+              </div>
+              <span
+                class="ml-4 hidden flex-none text-xs text-muted-foreground md:block md:text-sm"
+                >Dec 2023
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</Layout>
