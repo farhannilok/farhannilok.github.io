@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/main.astro"
+import hardPartsOfJs from "@/assets/courses/hard-parts-of-functional-js.jpg"
+import { Image } from "astro:assets"
+---
+
+<Layout>
+  <section
+    class="mx-auto my-2 w-full space-y-8 border-t border-b px-6 py-6 md:my-8 md:rounded-lg md:border md:px-12"
+  >
+    <h1 class="page-title text-2xl font-bold">
+      Farhan Hasan Nilok's Courses &amp; Certifications Collection
+    </h1><p class="mb-12 text-sm text-muted-foreground">
+      Explore Farhan Hasan Nilok's completed courses and professional
+      certifications.
+    </p>
+    <section class="flex flex-col gap-y-6 print:gap-y-1" id="dev.to-blogs">
+      <div class="space-y-2">
+        <h2 class="text-xl font-bold" id="dev.to-blogs">
+          Frontend Masters Courses
+        </h2>
+      </div>
+      <div class="space-y-6">
+        <div class="flex gap-3 md:gap-6">
+          <div class="relative h-13.5 w-24 flex-none md:h-33.75 md:w-60">
+            <Image
+              alt="How to Solve Vercel Server Less function Crushed 500 Error for Express Server"
+              loading="eager"
+              format="avif"
+              class="rounded-lg object-cover"
+              style="position:absolute;height:100%;width:100%;left:0;top:0;right:0;bottom:0;color:transparent;aspect-ratio:16/9"
+              src={hardPartsOfJs}
+            />
+          </div>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <a
+                  target="_blank"
+                  rel="noopener"
+                  href="https://dev.to/nilok/how-to-solve-vercel-server-less-function-crushed-error-for-express-server-445a"
+                  ><h3
+                    class="line-clamp-2 text-sm font-semibold hover:underline md:line-clamp-3 md:text-base"
+                  >
+                    The Hard Parts of Functional Javascript
+                  </h3>
+                </a>
+                <p class="py-10 text-sm text-muted-foreground">
+                  By Will Sentence.
+                </p>
+                <p class="hidden text-sm text-muted-foreground md:block">
+                  Covered JavaScript internals, including closures, higher-order
+                  functions, function composition, immutability, function
+                  decoration, and the JavaScript execution context.
+                </p>
+              </div>
+              <span
+                class="ml-4 hidden flex-none text-xs text-muted-foreground md:block md:text-sm"
+                >Mar 2026
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </section>
+</Layout>
