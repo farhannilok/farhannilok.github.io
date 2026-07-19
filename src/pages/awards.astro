@@ -1,0 +1,28 @@
+---
+import Layout from "@/layouts/main.astro"
+import { Image } from "astro:assets"
+import cseFestCeremonialPrize from "@/assets/awards/cse-fest-contest-2.jpg"
+---
+
+<Layout title="Award & Recognition | Farhan Hasan Nilok">
+  <section
+    class="mx-auto my-2 w-full border-t border-b px-6 py-6 md:my-8 md:rounded-lg md:border md:px-12"
+  >
+    <div class="space-y-3">
+      <h1 class="page-title text-2xl font-bold">
+        Farhan Hasan Nilok's Awards & Recognition
+      </h1>
+      <p class="text-sm text-muted-foreground">
+        Secured 2nd place alongside my teammate in the R.P. Shaha University
+        Intra Department Programming Contest, earning a commemorative award for
+        our performance.
+      </p>
+    </div>
+    <Image
+      src={cseFestCeremonialPrize}
+      loading="eager"
+      alt="CSE fest intra department programming contest prize"
+      class="mt-5 rounded"
+    />
+  </section>
+</Layout>
