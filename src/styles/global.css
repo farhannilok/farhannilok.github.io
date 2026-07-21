@@ -133,7 +133,7 @@
     @apply font-sans;
     }
 }
-@utility active-route {
+@utility chip {
   @apply inline-flex items-center justify-center rounded-sm border px-1.5 py-[0.1rem] text-xs ease-in-out transition-all duration-200;
 
   /* Standard Inactive State: Inherits light theme colors dynamically */
