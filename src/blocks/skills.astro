@@ -1,0 +1,23 @@
+---
+import { SKILLS } from "@/constants/skills-constants"
+---
+
+<section class="flex flex-col gap-y-6 print:gap-y-1" id="skills">
+  <div class="space-y-2">
+    <h2 class="text-xl font-bold" id="skills">Skills</h2>
+  </div>
+  <ul class="flex list-none flex-wrap gap-1 p-0" aria-label="List of skills">
+    {
+      SKILLS.map((skill) => (
+        <li>
+          <div
+            class="chip font-medium"
+            aria-label={`Skill: ${skill.ariaLabel}`}
+          >
+            {skill.name}
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</section>

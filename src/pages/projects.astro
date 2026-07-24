@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/main.astro"
+import { LuGlobe, LuLock } from "react-icons/lu"
+import { ProjectAction } from "@/components/react/project-action"
+import { PROJECTS } from "@/constants/project-list"
+---
+
+<Layout title="Nilok's Projects | Frontend Developer">
+  <section
+    class="mx-auto my-2 w-full border-t border-b px-6 py-6 md:my-8 md:rounded-lg md:border md:px-12"
+  >
+    <div class="space-y-3">
+      <h1 class="page-title text-2xl font-bold">
+        Farhan Hasan Nilok's Projects
+      </h1>
+      <p class="text-sm text-muted-foreground">
+        Browse the projects that I have worked on
+      </p>
+    </div>
+    <div class="mt-10 space-y-10">
+      {
+        PROJECTS.map((project) => (
+          <div class="flex flex-col gap-2">
+            <div class="flex items-start justify-between">
+              <div class="flex-1">
+                <h3 class="text-sm font-semibold md:text-base">
+                  {project.title}
+                </h3>
+                <p class="text-sm text-muted-foreground">
+                  {project.shortDescription}
+                </p>
+              </div>
+              <div class="flex items-center gap-4">
+                <span class="text-sm text-muted-foreground">
+                  {project.year}
+                </span>
+              </div>
+            </div>
+            <p class="text-sm text-muted-foreground">{project.role}</p>
+            <p class="text-sm text-muted-foreground">{project.description}</p>
+            {project.isPrivate && (
+              <p class="chip w-fit space-x-0.5 font-medium">
+                <LuLock size={12} />
+                <span>Private</span>
+              </p>
+            )}
+            {project.liveUrl && (
+              <p class="flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+                <LuGlobe />
+
+                <a href={project.liveUrl} target="_blank" rel="noopener">
+                  {project.liveUrl}
+                </a>
+              </p>
+            )}
+            {project.repositoryUrl && (
+              <ProjectAction
+                client:idle
+                repositoryUrl={project.repositoryUrl}
+              />
+            )}
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
