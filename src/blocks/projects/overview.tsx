@@ -4,7 +4,7 @@ interface OverviewProps {
 export function Overview({ description }: OverviewProps) {
   return (
     <section>
-      <h3 className="text-base">Overview</h3>
+      <h3 className="text-base font-medium">Overview</h3>
       <p className="text-sm text-muted-foreground">{description}</p>
     </section>
   )
