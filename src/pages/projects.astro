@@ -1,7 +1,7 @@
 ---
 import Layout from "@/layouts/main.astro"
 import { LuGlobe, LuLock } from "react-icons/lu"
-import ProjectAction from "@/blocks/project-action.astro"
+import GithubRepository from "@/blocks/github-repo-url.astro"
 import { PROJECTS } from "@/constants/project-list"
 ---
 
@@ -54,10 +54,7 @@ import { PROJECTS } from "@/constants/project-list"
               </p>
             )}
             {project.repositoryUrl && (
-              <ProjectAction
-                repositoryUrl={project.repositoryUrl}
-                libraries={project.libraries}
-              />
+              <GithubRepository repositoryUrl={project.repositoryUrl} />
             )}
           </div>
         ))
