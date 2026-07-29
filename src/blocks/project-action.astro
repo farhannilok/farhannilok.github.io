@@ -1,0 +1,44 @@
+---
+import { LuGithub } from "react-icons/lu"
+import { ProjectDetailsDialog } from "@/components/react/projects/project-details-dialog"
+import { Overview } from "@/components/react/projects/overview"
+import { ProjectTechStack } from "@/components/react/projects/tech-stack"
+import { Button } from "@/components/ui/button"
+import { Features } from "@/components/react/projects/features"
+import { ProjectImage } from "@/components/react/projects/project-img"
+
+interface Props {
+  libraries: readonly string[]
+  repositoryUrl: string
+}
+const { libraries, repositoryUrl } = Astro.props
+---
+
+<div class="flex items-center gap-2">
+  <a
+    title="GitHub"
+    href={repositoryUrl}
+    aria-label="GitHub"
+    target="_blank"
+    rel="noopener"
+  >
+    <Button variant="outline" size="icon" title="Repository">
+      <LuGithub />
+    </Button>
+  </a>
+  <ProjectDetailsDialog
+    client:idle
+    title="AirCNC"
+    description="A room accomodation platform for travellers"
+  >
+    <Overview
+      description="AirCNC is a full-stack accommodation booking platform.
+           It allows guests to discover and book rooms while enabling hosts to create
+           and manage listings through a modern React frontend backed by an Express
+           and MongoDB REST API."
+    />
+    <ProjectTechStack lists={libraries} />
+    <Features />
+    <ProjectImage />
+  </ProjectDetailsDialog>
+</div>
