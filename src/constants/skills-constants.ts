@@ -19,5 +19,7 @@ export const SKILLS = [
   { name: "TanStack Query", ariaLabel: "TanStack Query" },
   { name: "Redux Toolkit", ariaLabel: "Redux Toolkit" },
   { name: "RTK Query", ariaLabel: "RTK Query" },
+  { name: "HTML", ariaLabel: "HTML" },
+  { name: "CSS", ariaLabel: "CSS" },
   { name: "Zod", ariaLabel: "Zod" },
 ] as const
