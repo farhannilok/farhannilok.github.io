@@ -1,0 +1,160 @@
+---
+import profileImg from "@/assets/header-img.jpeg"
+import resume from "@/assets/Farhan_Hasan_Resume.pdf"
+import {
+  LuFileText,
+  LuGithub,
+  LuLinkedin,
+  LuMail,
+  LuMapPin,
+} from "react-icons/lu"
+import { Image } from "astro:assets"
+---
+
+<header
+  class="flex w-full flex-col items-start justify-between gap-4 md:flex-row md:items-center"
+>
+  <div class="w-full flex-1 space-y-2">
+    <h1 class="text-2xl font-bold" id="sumit-saha">
+      Farhan Hasan Nilok - Frontend Developer
+    </h1>
+    <p
+      class="max-w-lg text-sm text-muted-foreground print:text-xs"
+      aria-labelledby="resume-name"
+    >
+      I'm Farhan Hasan Nilok (Dhaka, Bangladesh) - a Frontend Developer. I build
+      software products and enjoy the craftsmanship.
+    </p>
+
+    <div
+      class="mb-4 flex flex-col justify-center text-sm text-muted-foreground"
+    >
+      <a
+        class="inline-flex items-center gap-x-1.5 hover:underline"
+        href="https://www.google.com/maps/search/Dhaka%2C%20Bangladesh"
+        target="_blank"
+        rel="noopener"
+        aria-label="Location: Dhaka, Bangladesh"
+      >
+        <LuMapPin size={13} />
+        <span>Dhaka, Bangladesh</span>
+      </a>
+    </div>
+
+    <ul
+      class="text-design-resume flex w-full list-none gap-x-2 pt-1 text-sm text-muted-foreground print:hidden"
+      aria-label="Contact links"
+    >
+      <li>
+        <a
+          title="LinkedIn"
+          href="https://linkedin.com/in/farhannilok"
+          aria-label="LinkedIn"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-md border p-2 text-sm font-medium transition-colors hover:bg-secondary focus:ring-2 focus:ring-offset-2 focus:outline-none"
+        >
+          <span class="size-3.5 md:size-4"> <LuLinkedin /></span>
+        </a>
+      </li>
+      <li>
+        <a
+          title="GitHub"
+          href="https://github.com/farhannilok"
+          aria-label="GitHub"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-md border p-2 text-sm font-medium transition-colors hover:bg-secondary focus:ring-2 focus:ring-offset-2 focus:outline-none"
+        >
+          <span class="size-3.5 md:size-4">
+            <LuGithub />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          title="Email"
+          href="mailto:nilok774@gmail.com"
+          aria-label="Email"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-md border p-2 text-sm font-medium transition-colors hover:bg-secondary focus:ring-2 focus:ring-offset-2 focus:outline-none"
+        >
+          <span class="size-3.5 md:size-4">
+            <LuMail />
+          </span>
+        </a>
+      </li>
+      <li>
+        <a
+          title="Resume"
+          href={resume}
+          aria-label="Resume"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 rounded-md border p-2 text-sm font-medium transition-colors hover:bg-secondary focus:ring-2 focus:ring-offset-2 focus:outline-none"
+          download
+        >
+          <span class="size-3.5 md:size-4">
+            <LuFileText />
+          </span>
+        </a>
+      </li>
+    </ul>
+
+    <div
+      class="hidden gap-x-2 text-sm print:flex print:text-[12px]"
+      aria-label="Print contact information"
+    >
+      <a
+        class="underline hover:text-foreground/70"
+        href="https://linkedin.com/in/farhannilok"
+        >linkedin.com/in/farhannilok</a
+      >
+      <a
+        class="underline hover:text-foreground/70"
+        href="https://github.com/farhannilok">github.com/farhannilok</a
+      >
+      <span aria-hidden="true">/</span>
+      <a
+        class="underline hover:text-foreground/70"
+        href="mailto:nilok774@gmail.com">nilok774@gmail.com</a
+      >
+    </div>
+  </div>
+
+  <div class="relative mx-auto shrink-0 md:mx-0" aria-hidden="true">
+    <div class="absolute animate-ring-spin" style="inset: -8px;">
+      <div class="relative h-full w-full">
+        <div
+          class="absolute h-[calc(50%)] w-[calc(50%)] rounded-tl-full border-t-4 border-l-4 border-[#4285f4]"
+        >
+        </div>
+        <div
+          class="absolute right-0 h-[calc(50%)] w-[calc(50%)] rounded-tr-full border-t-4 border-r-4 border-[#ea4335]"
+        >
+        </div>
+        <div
+          class="absolute bottom-0 h-[calc(50%)] w-[calc(50%)] rounded-bl-full border-b-4 border-l-4 border-[#fbbc05]"
+        >
+        </div>
+        <div
+          class="absolute right-0 bottom-0 h-[calc(50%)] w-[calc(50%)] rounded-br-full border-r-4 border-b-4 border-[#34a853]"
+        >
+        </div>
+      </div>
+    </div>
+    <div class="relative size-55 overflow-hidden rounded-full">
+      <Image
+        alt="Portrait of Farhan Hasan Nilok"
+        class="h-full w-full object-cover"
+        src={profileImg}
+        loading="eager"
+        format="avif"
+        fetchpriority="high"
+        width={220}
+        height={220}
+      />
+    </div>
+  </div>
+</header>

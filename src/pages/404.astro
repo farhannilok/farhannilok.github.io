@@ -1,0 +1,37 @@
+---
+import { SearchIcon } from "lucide-react"
+
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyTitle,
+  EmptyMedia,
+} from "@/components/ui/empty"
+
+import { Button } from "@/components/ui/button"
+import Layout from "@/layouts/main.astro"
+---
+
+<Layout title="Not Found">
+  <div
+    class="mx-4 flex h-[calc(100vh-64px)] items-center justify-center md:mx-0"
+  >
+    <Empty className="max-w-lg border border-dashed">
+      <EmptyHeader>
+        <EmptyMedia variant="icon">
+          <SearchIcon />
+        </EmptyMedia>
+        <EmptyTitle>404 - Not Found</EmptyTitle>
+        <EmptyDescription>
+          The page you&apos;re looking for doesn&apos;t exist. Try searching for
+          something else or go back to the homepage
+        </EmptyDescription>
+      </EmptyHeader>
+      <EmptyContent>
+        <a href="/"><Button variant="outline" size="sm">Home </Button></a>
+      </EmptyContent>
+    </Empty>
+  </div>
+</Layout>

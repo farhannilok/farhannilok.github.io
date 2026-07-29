@@ -1,0 +1,19 @@
+---
+import { LuGithub } from "react-icons/lu"
+
+interface Props {
+  repositoryUrl: string
+}
+
+const { repositoryUrl } = Astro.props
+---
+
+<p
+  class="flex w-fit items-center gap-1 text-sm text-wrap text-muted-foreground hover:text-foreground"
+>
+  <LuGithub />
+
+  <a href={repositoryUrl} target="_blank" rel="noopener">
+    {repositoryUrl}
+  </a>
+</p>
