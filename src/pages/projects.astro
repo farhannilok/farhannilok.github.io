@@ -45,13 +45,16 @@ import { PROJECTS } from "@/constants/project-list"
               </p>
             )}
             {project.liveUrl && (
-              <p class="flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground">
+              <a
+                class="flex w-fit items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener"
+              >
                 <LuGlobe />
 
-                <a href={project.liveUrl} target="_blank" rel="noopener">
-                  Visit site
-                </a>
-              </p>
+                <p>Visit site</p>
+              </a>
             )}
             {project.repositoryUrl && (
               <GithubRepository repositoryUrl={project.repositoryUrl} />

@@ -8,10 +8,13 @@ interface Props {
 const { repositoryUrl } = Astro.props
 ---
 
-<p
+<a
   class="flex w-fit items-center gap-1 text-sm text-wrap text-muted-foreground hover:text-foreground"
+  href={repositoryUrl}
+  target="_blank"
+  rel="noopener"
 >
   <LuGithub />
 
-  <a href={repositoryUrl} target="_blank" rel="noopener">Github</a>
-</p>
+  <p>Github</p>
+</a>
