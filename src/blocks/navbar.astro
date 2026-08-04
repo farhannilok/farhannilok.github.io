@@ -90,7 +90,7 @@ const links = [
         links.map((link) => (
           <div class="block">
             <a
-              class="inline-block py-2 text-sm text-muted-foreground transition-all hover:text-foreground"
+              class="inline-block py-2 text-sm font-medium text-muted-foreground transition-all hover:text-foreground"
               href={link.href}
             >
               {link.label}
@@ -102,18 +102,23 @@ const links = [
     </div>
   </div>
 </nav>
-<script>
-  const button = document.getElementById("mobile-menu-button")
-  const menu = document.getElementById("mobile-menu")
-  const openIcon = button?.querySelector('[data-icon="open"]')
-  const closeIcon = button?.querySelector('[data-icon="close"]')
+<script is:inline>
+  function initiateExpandMenu() {
+    const button = document.getElementById("mobile-menu-button")
+    const menu = document.getElementById("mobile-menu")
+    const openIcon = button?.querySelector('[data-icon="open"]')
+    const closeIcon = button?.querySelector('[data-icon="close"]')
 
-  button?.addEventListener("click", () => {
-    const isOpen = button.getAttribute("aria-expanded") === "true"
-    button.setAttribute("aria-expanded", String(!isOpen))
-    menu?.classList.toggle("max-h-0", isOpen)
-    menu?.classList.toggle("max-h-96", !isOpen)
-    openIcon?.classList.toggle("hidden", !isOpen)
-    closeIcon?.classList.toggle("hidden", isOpen)
-  })
+    function expandMenu() {
+      const isOpen = button?.getAttribute("aria-expanded") === "true"
+      button?.setAttribute("aria-expanded", String(!isOpen))
+      menu?.classList.toggle("max-h-0", isOpen)
+      menu?.classList.toggle("max-h-96", !isOpen)
+      openIcon?.classList.toggle("hidden", !isOpen)
+      closeIcon?.classList.toggle("hidden", isOpen)
+    }
+
+    button?.addEventListener("click", expandMenu)
+  }
+  document.addEventListener("astro:page-load", initiateExpandMenu)
 </script>
