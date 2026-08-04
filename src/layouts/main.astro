@@ -1,6 +1,7 @@
 ---
 import Navbar from "@/blocks/navbar.astro"
 import "@/styles/global.css"
+import { ClientRouter } from "astro:transitions"
 const { title } = Astro.props
 ---
 
@@ -13,9 +14,24 @@ const { title } = Astro.props
       ? "dark"
       : "light"
   }
-  const isDark = getThemePreference() === "dark"
-  document.documentElement.classList[isDark ? "add" : "remove"]("dark")
 
+  function applyTheme() {
+    const isDark = getThemePreference() === "dark"
+    document.documentElement.classList[isDark ? "add" : "remove"]("dark")
+  }
+
+  applyTheme()
+
+  // as astro swap the latest request page with the old page
+  // added a dark class to the <html class='dark'> before the page swap event is occured
+  document.addEventListener("astro:before-swap", (event) => {
+    const isDark = getThemePreference() === "dark"
+    event.newDocument.documentElement.classList[isDark ? "add" : "remove"](
+      "dark"
+    )
+  })
+
+  // The mutation observes the DOM changes if the theme changes it immediately updates the localstorage
   if (typeof localStorage !== "undefined") {
     const observer = new MutationObserver(() => {
       const isDark = document.documentElement.classList.contains("dark")
@@ -36,18 +52,15 @@ const { title } = Astro.props
       name="description"
       content="Frontend developer specializing in React, TypeScript, and modern web technologies. Explore my projects, skills, and professional experience."
     />
-    <!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNCMEIwQjAiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1jb2RlLXhtbC1pY29uIGx1Y2lkZS1jb2RlLXhtbCI+PHBhdGggZD0ibTE4IDE2IDQtNC00LTQiLz48cGF0aCBkPSJtNiA4LTQgNCA0IDQiLz48cGF0aCBkPSJtMTQuNSA0LTUgMTYiLz48L3N2Zz4="
-    />
+    <link rel="icon" type="image/svg+xml" href="favicon.ico" />
+    <!-- this line makes the app feels like a SPA with a smooth fade animation -->
+    <ClientRouter />
     <title>{title}</title>
   </head>
   <body class="min-h-screen">
     <main class="mx-auto max-w-5xl md:px-4">
       <Navbar />
-      <slot />
+      <slot transition:animate="fade" />
     </main>
   </body>
 </html>
