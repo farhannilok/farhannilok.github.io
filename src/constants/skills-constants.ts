@@ -1,6 +1,7 @@
 export const SKILLS = [
   { name: "JavaScript", ariaLabel: "JavaScript" },
   { name: "TypeScript", ariaLabel: "TypeScript" },
+  { name: "Axios", ariaLabel: "Axios" },
   { name: "React", ariaLabel: "ReactJS" },
   { name: "TailwindCSS", ariaLabel: "TailwindCSS" },
   { name: "Shadcn/ui", ariaLabel: "shadcn/ui" },
