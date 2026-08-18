@@ -83,7 +83,7 @@ export const PROJECTS = [
     title: "CarDoctor",
     year: 2024,
     role: "Full-Stack Developer",
-    shortDescription: "An Automobile Service Website",
+    shortDescription: "An automobile service website",
     description:
       "A full-stack web application for booking automotive services, enabling users to explore service offerings, manage appointments, and authenticate securely using Firebase Authentication with email/password and Google Sign-In.",
     liveUrl: "https://car-doctor-9c6fe.web.app/",
