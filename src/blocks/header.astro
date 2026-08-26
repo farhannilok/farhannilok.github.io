@@ -1,14 +1,6 @@
 ---
-import profileImg from "@/assets/header-img.jpeg"
-import resume from "@/assets/Farhan_Hasan_Resume.pdf"
-import {
-  LuFileText,
-  LuGithub,
-  LuLinkedin,
-  LuMail,
-  LuMapPin,
-} from "react-icons/lu"
-import { Image } from "astro:assets"
+import { CopyEmailButton } from "@/components/react/copy-email"
+import { LuFileText, LuGithub, LuLinkedin, LuMapPin } from "react-icons/lu"
 ---
 
 <header
@@ -69,18 +61,7 @@ import { Image } from "astro:assets"
         </a>
       </li>
       <li>
-        <a
-          title="Email"
-          href="mailto:nilok774@gmail.com"
-          aria-label="Email"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center justify-center gap-2 rounded-md border p-2 text-sm font-medium transition-colors hover:bg-secondary focus:ring-2 focus:ring-offset-2 focus:outline-none"
-        >
-          <span class="size-3.5 md:size-4">
-            <LuMail />
-          </span>
-        </a>
+        <CopyEmailButton client:load />
       </li>
       <li>
         <a
