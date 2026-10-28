@@ -4,7 +4,7 @@ export const SKILLS = [
   { name: "Axios", ariaLabel: "Axios" },
   { name: "React", ariaLabel: "ReactJS" },
   { name: "React Hook Form", ariaLabel: "React Hook FormJS" },
-  { name: "TailwindCSS", ariaLabel: "TailwindCSS" },
+  { name: "Tailwind CSS", ariaLabel: "TailwindCSS" },
   { name: "Shadcn/ui", ariaLabel: "shadcn/ui" },
   { name: "DaisyUI", ariaLabel: "DaisyUI" },
   { name: "Headless UI", ariaLabel: "HeadlessUI" },
