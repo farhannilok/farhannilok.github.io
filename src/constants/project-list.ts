@@ -7,8 +7,8 @@ export const PROJECTS = [
     description:
       "A backend application for managing a personal book collection, built to strengthen my backend development skills with Node.js, Express, and PostgreSQL. The project provides RESTful APIs for book management and is designed to evolve with features such as reading summaries, key takeaways, pair reading, and reading streak tracking.",
     liveUrl: null,
-    repositoryUrl: null,
-    isPrivate: true,
+    repositoryUrl: "https://github.com/farhannilok/bookshelf",
+    isPrivate: false,
     libraries: [
       "Typescript",
       "Node",
